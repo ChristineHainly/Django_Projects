@@ -1,0 +1,35 @@
+<!-- inherits from/adds onto the base.html file -->
+{% extends "home/base.html" %}
+
+<!-- Fills the <title> tag from base.html with "My Blog" -->
+{% block title %}Django Practice{% endblock%}
+
+<!-- Body -->
+{% block content %}
+	<header>
+		<h1>Django Practice</h1>
+	</header>
+
+	<section>
+		<aside>
+		  <nav>
+		    <ul>
+		        <div>
+		            <li><a href="{% url 'polls:polls' %}">Polls</a></li>
+		        </div>
+		    </ul>
+		  </nav>
+		</aside>
+		
+		<article>
+			<h2>Welcome!</h2>
+			<p>This is the homepage to all of my Django applications. Have fun exploring and testing all the applications listed in the side menu!</p>
+			<p>Thank you,</p>
+			<p>Christine</p>
+		</article>
+	</section>
+	
+	<footer>
+	  <p>This is the footer of the page</p>
+	</footer>
+{% endblock %}

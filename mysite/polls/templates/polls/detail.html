@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Poll Details</title>
+		<meta charset="UTF-8">
+		<!-- The following provides a description for the website -->
+		<meta name="description" content="Free Web tutorials">
+		<!-- The following defines keywords for websites -->
+		<meta name="keywords" content="HTML, CSS, XML, JavaScript">
+		<!-- The following automatically sets the viewport for all devices -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<h1>{{ question.question_text }}</h1>
+
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+		<form action="{% url 'polls:vote' question.id %}" method="post">
+		{% csrf_token %}
+		{% for choice in question.choice_set.all %}
+		    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+		    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+		{% endfor %}
+		</br>
+		<input type="submit" value="Vote" />
+		</form>
+		<br/>
+		<a href="{% url 'polls:polls' %}">Back to all poll questions...</a>
+		<br/>
+		<a href="{% url 'polls:results' question.id %}">View Results</a>
+	</body>
+</html>
