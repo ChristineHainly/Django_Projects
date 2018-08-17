@@ -1,0 +1,26 @@
+<!-- Need this tag to load all static files with Django -->
+{% load staticfiles %}
+
+</!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- The following provides a description for the website -->
+		<meta name="description" content="Free Web tutorials">
+		<!-- The following defines keywords for websites -->
+		<meta name="keywords" content="HTML, CSS, XML, JavaScript">
+		<!-- The following automatically sets the viewport for all devices -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{% block title %}{% endblock %}</title>		
+		
+		<!-- used to link the css file -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		
+		<link  href="/static/css/styles.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>

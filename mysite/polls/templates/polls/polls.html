@@ -1,29 +1,42 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Poll Questions</title>
-		<meta charset="UTF-8">
-		<!-- The following provides a description for the website -->
-		<meta name="description" content="Free Web tutorials">
-		<!-- The following defines keywords for websites -->
-		<meta name="keywords" content="HTML, CSS, XML, JavaScript">
-		<!-- The following automatically sets the viewport for all devices -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<h1>Poll Questions:</h1>
+<!-- inherits from/adds onto the base.html file -->
+{% extends "polls/base.html" %}
 
-		{% if latest_question_list %}
+<!-- Fills the <title> tag from base.html with "My Blog" -->
+{% block title %}Django Practice{% endblock%}
+
+<!-- Body -->
+{% block content %}
+	<header>
+		<h1>Polls</h1>
+	</header>
+
+	<section>
+		<aside>
+		  <nav>
 		    <ul>
-		    {% for question in latest_question_list %}
-		       <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-		    {% endfor %}
+		        <div>
+		            <li><a href="{% url 'home:index' %}">Home</a></li>
+		        </div>
 		    </ul>
-		{% else %}
-		    <p>No polls are available.</p>
-		{% endif %}
+		  </nav>
+		</aside>
 		
-		<a href="{% url 'home:index' %}">Back to Homepage</a>
-	</body>
-</html>
+		<article>
+			<h1>Poll Questions:</h1>
+
+			{% if latest_question_list %}
+			    <ul>
+			    {% for question in latest_question_list %}
+			       <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+			    {% endfor %}
+			    </ul>
+			{% else %}
+			    <p>No polls are available.</p>
+			{% endif %}
+		</article>
+	</section>
+	
+	<footer>
+	  <p>This is the footer of the page</p>
+	</footer>
+{% endblock %}
