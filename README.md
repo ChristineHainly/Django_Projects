@@ -1,5 +1,4 @@
 # Django_Projects
-https://docs.djangoproject.com/en/2.1/intro/install/
 
 This is a compilation of the Django projects I am currently working on.
 
