@@ -1,6 +1,6 @@
 # Django_Projects
 
-This is a compilation of the Django projects I am currently working on.
+This is a compilation of the Django projects I have or am currently working on.
 
 ## Getting Started
 
